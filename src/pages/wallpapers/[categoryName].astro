@@ -11,7 +11,7 @@ interface Wallpapers {
 const { categoryName } = Astro.params as { categoryName: string };
 
 
-const baseUrl = import.meta.env.DEV ? "http://localhost:4321/" : "https://wallpapers-site.vercel.app";
+const baseUrl = import.meta.env.DEV ? "http://localhost:4321/" : "https://wallpapers-site.vercel.app/";
 
 const data: Wallpapers = await fetchWallpapers(categoryName, baseUrl);
 const categoryUrls = data[categoryName] || [];
