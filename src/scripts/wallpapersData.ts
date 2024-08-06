@@ -63,10 +63,7 @@ export async function wallpapersData(name: string) {
 }
 
 export const fetchWallpapers = async (category: string) => {
-    const baseUrl = "https://wallpapers-site.vercel.app/";
-
-    if (!baseUrl)
-        throw Error("Failed to get base url path")
+    const baseUrl = process.env.BASE_URL || "https://wallpapers-site.vercel.app/";
 
     const res = await fetch(`${baseUrl}api/wallpapers?name=${category}`);
 
