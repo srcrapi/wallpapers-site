@@ -63,7 +63,7 @@ export async function wallpapersData(name: string) {
 }
 
 export const fetchWallpapers = async (category: string, baseUrl: string) => {
-    const res = await fetch(`${baseUrl}api/wallpapers?name=${category}`);
+    const res = await fetch(`${baseUrl}api/wallpapers.json?name=${category}`);
 
     if (!res.ok)
         throw new Error("Failed to fetch wallpapers endpoint: " + res.status);
