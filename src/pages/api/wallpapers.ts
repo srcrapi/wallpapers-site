@@ -1,4 +1,6 @@
-import { wallpapersData } from "../../scripts/wallpapersData"
+import { wallpapersData } from "@scripts/wallpapersData"
+
+export const prerender = true
 
 interface GetProps {
     request: Request
