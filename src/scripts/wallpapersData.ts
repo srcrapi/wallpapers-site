@@ -62,9 +62,7 @@ export async function wallpapersData(name: string) {
     return urls
 }
 
-export const fetchWallpapers = async (category: string) => {
-    const baseUrl = process.env.BASE_URL || "https://wallpapers-site.vercel.app/";
-
+export const fetchWallpapers = async (category: string, baseUrl: string) => {
     const res = await fetch(`${baseUrl}api/wallpapers?name=${category}`);
 
     if (!res.ok)
