@@ -1,0 +1,16 @@
+---
+import SocialIcons from "./SocialIcons.astro";
+
+import { GITHUB_AUTHOR, SOURCE_CODE } from "../scripts/constants";
+---
+
+<footer class="bg-slate-800 flex justify-between mt-6">
+    <p class="my-3 flex-1 text-center text-lg">
+        Made by <a href={GITHUB_AUTHOR} class="text-blue-400 hover:underline"
+            >rap1</a>
+    </p>
+
+    <div class="flex items-center space-x-4 mr-4">
+        <SocialIcons name="github" url={SOURCE_CODE} title="source code" />
+    </div>
+</footer>

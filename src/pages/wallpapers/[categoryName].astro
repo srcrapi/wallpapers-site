@@ -1,0 +1,28 @@
+---
+import VerticalBar from "../../components/VerticalBar";
+import ShowImages from "../../components/ShowImages";
+import Layout from "../../layouts/Layout.astro";
+import { fetchWallpapers } from "../../scripts/wallpapersData";
+
+interface Wallpapers {
+    [category: string]: string[];
+}
+
+const { categoryName } = Astro.params as { categoryName: string };
+
+const data: Wallpapers = await fetchWallpapers(categoryName);
+const categoryUrls = data[categoryName] || [];
+---
+
+<Layout title="Wallpapers" description="All my wallpapers">
+    <main class="flex grow">
+        <section
+            class="flex text-lg w-80 bg-slate-800 p-5 m-3 mt-6 rounded-2xl sticky h-fit top-5"
+        >
+            <VerticalBar name={categoryName} client:load />
+        </section>
+        <section class="relative w-full columns-3 gap-4 m-6">
+            {categoryUrls.map((url) => <ShowImages url={url} client:load />)}
+        </section>
+    </main>
+</Layout>

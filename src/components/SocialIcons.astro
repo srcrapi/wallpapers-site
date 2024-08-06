@@ -1,0 +1,21 @@
+---
+interface Props {
+    name: string;
+    url: string;
+    title?: string;
+}
+
+const { name, url, title } = Astro.props;
+---
+
+<a
+    href={url}
+        class="w-8 h-8 p-1 bg-slate-500 rounded-lg transition-colors duration-300 ease-in-out hover:bg-slate-400 flex items-center justify-center"
+    target="_blank"
+>
+    <img
+        title={title ?? name}
+        src={`/assets/icons/${name}.svg`}
+        alt={name + " icon"}
+    />
+</a>

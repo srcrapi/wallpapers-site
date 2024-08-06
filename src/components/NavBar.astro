@@ -1,0 +1,24 @@
+---
+const routes = ["home", "wallpapers"];
+---
+
+<nav class="my-4 text-xl font-md">
+    <ul class="flex space-x-4">
+        {
+            routes.map((route) => (
+                <li>
+                    <a
+                        href={
+                            route == "home"
+                                ? "/"
+                                : `/wallpapers/Anime-Characters`
+                        }
+                        class="hover:decoration-dashed hover:underline"
+                    >
+                        {route.charAt(0).toUpperCase() + route.slice(1)}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</nav>
