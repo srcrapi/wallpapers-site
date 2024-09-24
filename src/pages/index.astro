@@ -3,11 +3,11 @@ import Layout from "../layouts/Layout.astro";
 
 import { GITHUB_WALLPAPER } from "../scripts/constants";
 
-export const prerender = true
+export const prerender = true;
 ---
 
 <Layout title="Home" description="Website for my wallpapers repo">
-    <main class="h-full grow my-8 mx-52">
+    <main class="h-full grow my-8 mx-52 max-md:mx-6">
         <section class="flex flex-col justify-center items-center">
             <img
                 src="/assets/welcome_image.jpg"
@@ -15,7 +15,7 @@ export const prerender = true
                 class="w-[320px] rounded-2xl my-7"
             />
 
-            <h1 class="text-5xl">
+            <h1 class="text-4xl text-center max-md:text-3xl">
                 A website for a
                 <a
                     href={GITHUB_WALLPAPER}
@@ -27,14 +27,16 @@ export const prerender = true
 
             <a
                 href="/wallpapers/Anime-Characters"
-                class="relative my-9 bg-slate-500 p-2 rounded-full transition-[background-color] duration-500 ease-in-out hover:bg-slate-400"
+                class="text-xl my-9 bg-slate-500 p-3 px-5 rounded-lg transition-all duration-500 ease-in-out button-shadow hover:!shadow-none focus:!shadow-none"
             >
-                <img
-                    src="/assets/right_arrow.svg"
-                    alt="right arrow"
-                    class="inline-block"
-                />
+				Go
             </a>
         </section>
     </main>
 </Layout>
+
+<style>
+	.button-shadow {
+		box-shadow: 4px 5px 0 rgb(51, 65, 85);
+	}
+</style>

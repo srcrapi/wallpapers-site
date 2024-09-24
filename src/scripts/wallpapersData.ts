@@ -12,16 +12,14 @@ interface UrlImages {
 }
 
 
-async function getData(contentUrl: string, header: HeadersInit): Promise<any> {
+async function getData<T extends object = any>(contentUrl: string, header: HeadersInit) {
     const response = await fetch(contentUrl, {
         headers: header
     });
 
     if (!response.ok) throw new Error("Error fetching data: " + response.statusText);
 
-    const data = await response.json();
-
-    return data;
+    return response.json() as Promise<T>;
 }
 
 export async function wallpapersData(name: string) {
