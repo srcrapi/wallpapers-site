@@ -16,7 +16,7 @@ export default function VerticalBar({ name: categoryName }: VerticalBarProps) {
 		const controller = new AbortController();
 		const signal = controller.signal;
 
-		const storedData = localStorage.getItem("navigationData");
+		const storedData = sessionStorage.getItem("navigationData");
 
 		if (storedData) {
 			setData(JSON.parse(storedData));
@@ -38,7 +38,7 @@ export default function VerticalBar({ name: categoryName }: VerticalBarProps) {
 				}));
 
 				setData(filteredData);
-				localStorage.setItem("navigationData", JSON.stringify(filteredData));
+				sessionStorage.setItem("navigationData", JSON.stringify(filteredData));
 			})
 			.catch((err) => {
 				if (err.name === "AbortError") {
